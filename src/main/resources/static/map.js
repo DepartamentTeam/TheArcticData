@@ -20,7 +20,7 @@ var geojsonMarkerOptions = {
         layer.bindPopup(popupContent);
 }
 
-var medMurmanskData = new L.GeoJSON.AJAX("http://localhost:8080/data/med_murmansk.geojson",{
+var medMurmanskData = new L.GeoJSON.AJAX("/data/med_murmansk.geojson",{
     onEachFeature: forEachFeature,
     pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, geojsonMarkerOptions);
