@@ -26,3 +26,12 @@ var medMurmanskData = new L.GeoJSON.AJAX("/data/med_murmansk.geojson",{
         return L.circleMarker(latlng, geojsonMarkerOptions);
     }
 }).addTo(map);
+
+//Geoserver wms
+var mywms = L.tileLayer.wms("http://62.113.107.81:8081/geoserver/department/wms", {
+    layers: 'department:geopkg_result',
+    format: 'image/png',
+    transparent: true,
+    version: '1.1.0',
+    attribution: "myattribution"
+}).addTo(map);
