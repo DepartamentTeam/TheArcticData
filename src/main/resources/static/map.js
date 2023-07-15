@@ -28,8 +28,8 @@ var medMurmanskData = new L.GeoJSON.AJAX("/data/med_murmansk.geojson",{
 }).addTo(map);
 
 //Geoserver wms
-var mywms = new L.TileLayer.WMS("http://62.113.107.81:8081/geoserver/department/wms", {
-    layers: 'department:geopkg_result',
+var mywms = new L.TileLayer.WMS("http://62.113.107.81:8081/geoserver/department/wms", { // адрес Geoserver
+    layers: 'department:result', // имя слоя на Geoserver
     format: 'image/png',
     transparent: true,
     version: '1.1.0',
@@ -52,30 +52,32 @@ map.on('click', function(e) {
         done: function(featureCollection) {
 
             // Check for previous selected polygon layer and possibly remove it
-            if (selectedPolygonId > -1)    {
-                map.removeLayer(map._layers[selectedPolygonId]);
-                selectedPolygonId = -1;
-            }
-
-            // Create the newly selected polygon layer using WFS
-            if (featureCollection.features.length > 0) {
-                let selectedPolygon = L.Geoserver.wfs("http://62.113.107.81:8081/geoserver/department/wms", {
-                    layers: "department:geopkg_result",
-                    CQL_FILTER: `ID='${featureCollection.features[0].properties.NAME}'`,
-                    style: selectedStyle,
-                    fitLayer: false,
-                });
-
-                selectedPolygonId = L.stamp(selectedPolygon);
-                selectedPolygon.addTo(map);
-            }
-
-            // Info popup
-            let content = getMyData(); // HTML content with geometry related attributes values already formatted
-            L.popup({ maxWidth: 800})
-                .setLatLng(e.latlng)
-                .setContent(content)
-                .openOn(map);
+        //    if (selectedPolygonId > -1)    {
+        //        map.removeLayer(map._layers[selectedPolygonId]);
+        //        selectedPolygonId = -1;
+        //    }
+              console.log(featureCollection);
+//
+//
+        //    // Create the newly selected polygon layer using WFS
+        //    if (featureCollection.features.length > 0) {
+        //        let selectedPolygon = L.Geoserver.wfs("http://62.113.107.81:8081/geoserver/department/wms", {
+        //            layers: "department:result",
+        //            CQL_FILTER: `ID='${featureCollection.features[0].properties.NAME}'`,
+        //            style: selectedStyle,
+        //            fitLayer: false,
+        //        });
+//
+        //        selectedPolygonId = L.stamp(selectedPolygon);
+        //        selectedPolygon.addTo(map);
+        //    }
+//
+        //    // Info popup
+              let content = featureCollection.features[0].properties.NAME; // HTML content with geometry related attributes values already formatted
+              L.popup({ maxWidth: 800})
+                  .setLatLng(e.latlng)
+                  .setContent(content)
+                  .openOn(map);
         },
         fail: function(errorThrown) {
             console.log('getFeatureInfo failed: ', errorThrown);
