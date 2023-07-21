@@ -1,0 +1,48 @@
+
+.context-menu {
+    background-color: var(--ds-gray-600);
+    height: 320px;
+    ul {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        align-content: center;
+    }
+  
+}
+
+.menu {
+    button {
+        &:hover {
+            filter: brightness(110%);
+        }
+        display: flex;
+        align-items: center;
+        align-content: center;
+    }
+    menu {
+        margin: 0;
+        margin-top: 8pt;
+        padding: 0;
+        background-color: var(--ds-gray-600);
+        border-radius: 6px;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        align-content: center;
+    } 
+    li {
+        width: 100%;
+        border-bottom: 1px solid var(--ds-gray-300);
+        &:hover {
+            color: var(--ds-dark-600);
+            background-color: var(--ds-gray-300);
+        }
+    }
+}

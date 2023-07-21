@@ -1,0 +1,65 @@
+@import "./banner.scss";
+@import "./menu.scss";
+@import "./modals.scss";
+@import "./chip.scss";
+@import "./inputs.scss";
+@import "./cards.scss";
+.tooltips-bar {
+ 
+   &__map {
+    
+    position: relative;
+    &-container {
+        position: absolute;
+        z-index: 1200;
+        margin: 8px ;
+        bottom: 0;
+        
+    }
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 325px;
+    @media (max-width: $ds-breakpoint-sm) {
+        width: fit-content;
+    }
+    position: static;
+    height: 625px;
+    overflow-y: scroll;
+    display: flex;
+    gap: 4pt;
+    overflow: hidden;
+   
+    svg {
+        max-width: 50px;
+        max-height: 50px;
+    }
+    margin-bottom: 1rem;
+    ul { 
+        text-align: center;
+        margin-top: 1rem;
+        overflow-x: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0;
+        margin: 0;
+        gap: 8pt;
+
+        label {
+            display: flex;
+        }
+        li {
+            margin-left: 1rem;
+            margin-top: 1rem;
+            &::marker {
+                color: transparent;
+            }
+           }
+
+       }
+   
+   }
+  
+ 
+}

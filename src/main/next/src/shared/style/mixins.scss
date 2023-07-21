@@ -1,0 +1,14 @@
+@mixin flex-col-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8pt;
+    
+}
+
+@mixin flex-row-container {
+    display: flex;
+    flex-direction: row;
+    
+    gap: 8pt;    
+}
+

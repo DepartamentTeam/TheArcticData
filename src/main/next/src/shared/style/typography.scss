@@ -1,0 +1,135 @@
+.ty {
+  &-title {
+    font-weight: 700;
+    color: $color-accent-indigo;
+  }
+}
+h4 {
+  font-size: 26pt;
+  font-weight: 700;
+}
+.a {
+  font-size: 12pt;
+  transition: all 300ms ease-out;
+  color: var(--ds-accent-violet-dark);
+  max-width: fit-content;
+  stroke:  var(--ds-accent-violet-dark);
+  &:hover {
+    color: var(--ds-accent-violet-light);
+  }
+}
+
+.sub1 {
+  font-size: 16pt;
+  font-weight: 700;
+}
+
+.body-1 {
+  color: var(--ds-gray-100);
+  font-weight: bold;
+  font-size: 16pt;
+}
+
+.body-2 {
+  
+  font-size: 14pt;
+}
+.subtitle-1 {
+  font-size: 16pt;
+  font-weight: 700;
+}
+
+.sub2 {
+  font-size: 14pt;
+  font-weight: 700;
+}
+.small-1 {
+  font-size: 12pt;
+  @media (max-width: $ds-breakpoint-sm) {
+    font-size: 8pt;
+  }
+  font-weight: bold;
+}
+
+.small-2 {
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+h2 {
+  
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+strong {
+  font-weight: bold;
+  color: #000;
+  @media (prefers-color-scheme: dark) {
+    color: #fff;
+  }
+}
+
+.a {
+  width: fit-content;
+font-size: 18pt;
+color: var(--ds-accent-violet-dark);
+&:hover {
+  color: var(--ds-accent-violet-light);
+}
+}
+
+
+.anchor {
+  &::before {
+    content: url('data: image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>');
+    display: inline-block;
+  }
+  &:hover {
+    
+  }
+}
+
+.markdown {
+  margin-left: 1rem;
+  position: absolute;
+  height: 100%;
+  overflow-y: scroll;
+  h1, h2, h3, h4, h5 {
+    margin: auto;
+    border-bottom: 1px solid var(--ds-gray-600);
+  }
+  ol {
+    @media (prefers-color-scheme: dark) {
+      color: var(--ds-gray-300);
+    }
+    &::marker {
+      color: white !important; 
+    }
+    color: var(--ds-black-300);
+  }
+  p {
+    margin-bottom: 1rem;
+    @media (prefers-color-scheme: dark) {
+      color: var(--ds-gray-300);
+    }
+    color: var(--ds-black-300);
+  }
+  blockquote {
+    padding: 0;
+    color: var(--ds-gray-600);
+    border-left: .3rem solid var(--ds-gray-600);
+    p {
+      margin-left: 1rem;
+      color: var(--ds-gray-600);
+    }
+  }
+}
+
+details {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-around;
+}
+

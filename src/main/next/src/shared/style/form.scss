@@ -1,0 +1,143 @@
+@import "./mixins.scss";
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8pt;
+  height: 100%;
+  width: 100%;
+
+  &-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  &-control {
+    display: flex;
+    flex-direction: column;
+    gap: 8pt;
+    &:focus-visible {
+      label {
+        display: none;
+      }
+    }
+  }
+  &-input {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    
+    i {
+      
+      top:0;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    svg {
+      fill: gray;
+      width: 32px;
+    }
+    @include flex-row-container;
+  }
+  input {
+    width: 100%;
+    border: 1px solid var(--ds-gray-600);
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+    color: var(--ds-gray-600);
+    background-color: transparent;
+    transition: border-color 0.2s ease-in-out;
+    &:focus {   
+      outline: unset;
+      transition: all 300ms ease-in-out 0s horizontal;
+      border-color: var(--colors-primary);  
+      + label {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--ds-gray-600);
+   
+    //background-color: $ds--alpha-200;
+  }
+  
+  &-buttons {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 16pt;
+    justify-content: space-between;
+  }
+}
+
+.input {
+  border: 1px solid $color-accent-blue;
+  background-origin: padding-box;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 6px;
+  background-color: $body-bg-light;
+}
+.login-form {
+  min-width: 420px;
+  @media (max-width: $ds-breakpoint-sm) {
+    min-width: unset;
+  }
+  padding: 2rem;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: $outer-border-radius;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  
+  label {
+    color: var(--ds-gray-600);
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  
+  input {
+    border: 2px solid var(--ds-gray-600);
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+    color: var(--ds-gray-600);
+    background-color: transparent;
+    transition: border-color 0.2s ease-in-out;
+    
+    &:focus {
+      outline: none;
+      border-color: var(--colors-primary);
+    }
+    
+    &:disabled {
+      background-color: var(--ds-gray-600);
+      color: var(--ds-gray-600);
+      cursor: not-allowed;
+    }
+  }
+  
+  // Стили для показа ошибки
+  &.error {
+    input {
+      border-color: red;
+    }
+    
+    label {
+      color: red;
+    }
+  }
+}

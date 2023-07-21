@@ -1,0 +1,9 @@
+.section {
+    padding: 1rem;
+    @include flex-col-container;
+    justify-content: center;
+    align-items: center;
+    background-color: $light;
+    border-radius: 6px;
+    margin: 1rem;
+}

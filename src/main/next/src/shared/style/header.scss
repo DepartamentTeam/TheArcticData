@@ -1,0 +1,17 @@
+.sc-header {
+    padding: 2rem;
+    position: sticky;
+    
+    flex: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-radius: var(--border-round-sm);
+    max-width: 800px;
+    &__logo {
+        font-weight: 700;
+    }
+    background-color: transparent;
+    backdrop-filter: blur(2px) saturate(110%);
+    border: 1px solid    var(--alpha-light);
+}

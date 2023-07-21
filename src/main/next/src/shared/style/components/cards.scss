@@ -1,0 +1,41 @@
+
+.map-card { 
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    width: 325px;
+    @media (max-width: $ds-breakpoint-sm) {
+        left: 1%;
+        width: unset;
+    }
+    height: 325px;
+    overflow: scroll;
+    border: 1px solid var(--ds-gray-300);
+    z-index: 1300;
+    pointer-events: none;
+    background-color:  rgba(0,0,0, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: stretch;
+        height: 100%;
+    }
+    &__title {
+        padding: 0;
+        margin: 0;
+        line-height: 1;
+    }
+    &__col {
+        svg {
+            max-width: 50px;
+            max-height: 50px;
+        }
+        display: flex;
+        gap: 8pt;
+        width: 100%;
+        align-items: center;
+    }
+}

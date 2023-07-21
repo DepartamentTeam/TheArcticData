@@ -1,0 +1,11 @@
+
+.banner {
+    grid-column-start: span 6;
+    height: 325px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 20;
+    border-radius: .75rem;
+    background-color: var(--colors-primary);
+   padding: 1rem;
+}

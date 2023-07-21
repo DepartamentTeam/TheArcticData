@@ -1,0 +1,264 @@
+
+@import "./vars.scss";
+@import "./form.scss";
+@import "./pages/login.scss";
+@import "./pages/dashboard.scss";
+@import "./buttons.scss";
+@import "./mixins.scss";
+@import "./header.scss";
+@import "./pages/home.scss";
+@import './section.scss';
+@import './typography.scss';
+@import './table.scss';
+@import "./components/all.scss";
+@import url("~leaflet/dist/leaflet.css");
+.leaflet-control-attribution {
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+:root {
+  --ds-breakpoint-xs: 0px;
+  --ds-breakpoint-sm: 600px;
+  --ds-breakpoint-md: 900px;
+  --ds-breakpoint-lg: 1200px;
+  --ds-breakpoint-xl: 1536px;
+  --ds-border-radius-md: 12px;
+  --ds-colors-dark-blue: #66B2FF;
+  --body-bg-color-light: #F2F5FA;
+  --body-bg-color-dark: hsl(245, 24%, 19%);
+  --border-round-sm: 6px;
+  --colors-primary: #B0D7FF;
+  --alpha-light: rgba(255,255,255, 0.4);
+  --ds-accent-violet-dark: hsl(256, 34%, 58%);
+  --ds-accent-violet-light: hsl(255, 34%, 77%);
+  --ds-alpha: rgba(255, 255, 255, 0.08);
+  --ds-gray-600: #ADACB5;
+  --ds-gray-300: #D8D5DB;
+  --ds-gray-100: #EAE8FF;
+  --ds-black-100: hsl(245, 24%, 40%);
+  --ds-black-300: hsl(245, 24%, 30%);
+  --ds-black-600: hsl(245, 24%, 19%);
+  --ds-colors-error: #E74F48;
+  --map-tiles-filter: brightness(0.6) invert(1) contrast(4) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --body-bg-color: var(--body-bg-color-light);
+  }
+    body { background-color: var(--body-bg-color);
+    color: var(--ds-black-600);
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg-color: var(--body-bg-color-dark);
+  }
+  .map-tiles {
+    filter: var(--map-tiles-filter, none);
+  }
+ body {
+ background-color: var(--body-bg-color);}
+}
+:root[theme="light"] {
+  --bg-color: #F2F5FA;
+}
+:root[theme="dark"] {
+  --bg-color: #222222;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (color-sheme: "light") {
+
+  body {
+    color: #222222;
+  }
+  
+}
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  text-rendering: optimizeSpeed;
+  -webkit-text-size-adjust: 100%;
+}
+
+html::-webkit-scrollbar {
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+body {
+  height: 100%;
+  line-height: $body-line-height;
+  margin: 0 0 0 0;
+  font-size: $body-font-size;
+  font-weight: $body-font-weight;
+  font-family: $body-font-family;
+}
+
+h1 {
+
+  font-size: 32pt;
+  font-weight: 700;
+  color: var(--body-color);
+
+}
+
+h3 {
+  font-weight: 300;
+  font-size: 28pt;
+
+  margin: 0;
+  padding-bottom: 1rem;
+}
+input {
+  border: 0px;
+}
+select {
+  appearance: none;
+  border: 0px;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+input[type="file"] {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+  background: transparent;
+  position: relative;
+  border: 0px;
+}
+input[type="file"]::before {
+  display: block;
+  width: 22px;
+  height: 10px;
+  margin: 10px 5px 0 10px;
+  content: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="auto" height="auto" ><path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" /></svg>');
+}
+span {
+  font-style: bold;
+  font-weight: 700;
+  font-size: 12pt;
+}
+
+
+
+a {
+  text-decoration: none;
+  font-size: 16px;
+
+  color: currentColor;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  min-height: 50px;
+}
+
+label {
+  font-size: 18pt;
+}
+select::-ms-expand {
+  display: none;
+}
+
+header {
+	@include flex-row-container;
+  height: 60px;
+  background-color: $body-bg-light;
+align-items: center;
+  justify-content: space-between;
+  
+}
+
+
+
+.map {
+  position: relative;
+  overflow: hidden;
+  
+  
+  &-fullscreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1300;
+  }
+
+  &-container {
+    background-color: #222222;
+    position: relative;
+    overflow: hidden;
+    width: 525px;
+    
+    .mapboxgl-ctrl-attrib-inner {
+      display: none;
+    }
+  }
+ &-buttons {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: inline-flex;
+  z-index: 10;
+
+  
+  svg {
+    fill: white;
+    width: 50px;
+  }
+ }
+}
+
+.divider {
+  width: 100%;
+  flex: none;
+  margin:0;
+  border-width: 0px 0px thin;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.08)
+}
+
+.search-bar {
+
+  @include flex-row-container;
+  svg {
+    max-width: 24px;
+    fill: transparent;
+  }
+}
+
+.not-found {
+  margin: auto;
+}
+
+iframe {
+  border: none !important;
+  @media (prefers-color-scheme: dark) {
+
+    filter: brightness(0.9) invert(1) brightness(0.9) brightness(1) ;
+  }
+}
