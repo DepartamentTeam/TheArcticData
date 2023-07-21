@@ -1,0 +1,17 @@
+{
+    "short_name": "Арктида",
+    "name": "Геосервис Арктида",
+    "icons": [  
+        {
+        "src": "/img/arctida.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "prefer_related_applications": true,
+    "display": "fullscreen",
+    "start_url": "/",
+    "theme_color": "#B0D7FF",
+    "background_color": "#27253c",
+    "description": "Геосервис Арктида испльзует 18 критериев для системы рейтинга доступности медицинской помощи в Арктике."
+}
