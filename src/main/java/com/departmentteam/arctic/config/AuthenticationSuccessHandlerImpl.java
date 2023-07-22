@@ -25,6 +25,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
         for (String role : roles) {
             System.out.println(role);
         }
+        redirectURL = "/dashboard.html";
         response.sendRedirect(redirectURL);
     }
 }
