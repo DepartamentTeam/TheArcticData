@@ -17,11 +17,11 @@ public class Settlements {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String region;
     private String municipality;
     private String settlement;
     private String population;
-    private double rate_ter_access_duration;
-    private double rate_ter_access_distance;
+    private Double rate_ter_access_duration;
+    private Double rate_ter_access_distance;
 }
