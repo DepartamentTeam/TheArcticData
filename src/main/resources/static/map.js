@@ -28,11 +28,12 @@ var medMurmanskData = new L.GeoJSON.AJAX("/data/med_murmansk.geojson",{
 }).addTo(map);
 
 //Geoserver wms
-var mywms = new L.TileLayer.WMS("http://62.113.107.81:8081/geoserver/department/wms", { // адрес Geoserver
-    layers: 'department:result', // имя слоя на Geoserver
+var mywms = new L.NonTiledLayer.WMS("http://62.113.107.81:8081/geoserver/department/wms", { // адрес Geoserver
+    layers: 'department:settlements', // имя слоя на Geoserver
     format: 'image/png',
     transparent: true,
     version: '1.1.0',
+    no_cache_plz: Date.now(),
     attribution: "myattribution"
 }).addTo(map);
 
