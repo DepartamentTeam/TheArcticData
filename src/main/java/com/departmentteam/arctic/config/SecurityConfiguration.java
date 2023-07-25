@@ -56,7 +56,7 @@ public class SecurityConfiguration {
 
         UserDetails admin = User.builder()
                 .username("admin")
-                .password(passwordEncoder().encode("arctic-admin"))
+                .password(passwordEncoder().encode("admin"))
                 .roles("ADMIN")
                 .build();
 
