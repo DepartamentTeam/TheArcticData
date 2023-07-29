@@ -14,7 +14,7 @@ var geojsonMarkerOptions = {
     fillOpacity: 0.8
 };
  function forEachFeature(feature, layer) {
-        console.log(feature.properties);
+//        console.log(feature.properties);
         var popupContent = "<p> <b>" + JSON.stringify(feature.properties) + "</p>";
 
         layer.bindPopup(popupContent);
@@ -28,17 +28,62 @@ var medMurmanskData = new L.GeoJSON.AJAX("/data/med_murmansk.geojson",{
 }).addTo(map);
 
 var layerString = []
-var checkbox = document.querySelectorAll('input[type=checkbox]');
+var checkboxes = document.querySelectorAll('input[type=checkbox][name=layers]');
 var i = 0;
+var layersArr = [];
 
-for (; i < checkbox.length; i++) {
-  var check = checkbox[i];
+checkboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+  console.log(checkboxes)
+  for (var i = 0; i < checkboxes.length; i++) {
+    if(checkboxes[i].checked) {
+      layersArr[i] = new L.NonTiledLayer.WMS("http://62.113.107.81:8081/geoserver/department/wms", { // адрес Geoserver
+                         layers: checkboxes[i].value,
+                         format: 'image/png',
+                         transparent: true,
+                         version: '1.1.0',
+                         no_cache_plz: Date.now(),
+                         attribution: "myattribution"
+                     }).addTo(map);
+    } else if(typeof (layersArr[i]) !== 'undefined') {
+      if (map.hasLayer(layersArr[i])) {
+                   map.removeLayer(layersArr[i]);
+          }
+    }
 
-  if (check.checked === true) {
-      layerString.push(check.value)
   }
-}
 
+
+
+   enabledSettings =
+     Array.from(checkboxes) // Convert checkboxes to an array to use filter and map.
+     .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
+     .map(i => i.value) // Use Array.map to extract only the checkbox values from the array of objects.
+
+    console.log(checkbox.value + " " + checkbox.checked)
+  })
+});
+//for (; i < checkbox.length; i++) {
+//  var check = checkbox[i];
+//
+//  if (check.checked === true) {
+//      layerString.push(check.value)
+//  }
+//}
+//let checkboxes = $("input[type=checkbox][name=layers]")
+//let enabledSettings = [];
+//
+//// Attach a change event handler to the checkboxes.
+//checkboxes.change(function() {
+//  enabledSettings = checkboxes
+//    .filter(":checked") // Filter out unchecked boxes.
+//    .map(function() { // Extract values using jQuery map.
+//      return this.value;
+//    })
+//    .get() // Get array.
+//
+//  console.log(enabledSettings);
+//});
 
 
 console.log(layerString, layerString.join(","))

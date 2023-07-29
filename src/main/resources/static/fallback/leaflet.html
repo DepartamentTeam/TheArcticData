@@ -9,6 +9,7 @@
     <script src="libraries/leaflet.ajax.min.js"></script>
     <script src="libraries/Leaflet-WMS.min.js"></script>
     <script src="libraries/NonTileLayer.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="leaflet.css" />
   </head>
   <body style="background: white">
@@ -21,11 +22,11 @@
       <div id="map"></div>
       <div class="flex-col-container">
         <label>
-          <input id="settlements" type="checkbox" value="department:settlements" />
+          <input id="settlements" name="layers" type="checkbox" value="department:settlements" />
           населённые пункты
         </label>
         <label>
-          <input id="districts" type="checkbox" value="department:districts" />
+          <input id="districts" name="layers" type="checkbox" value="department:districts" />
           Районы
         </label>
       </div>
