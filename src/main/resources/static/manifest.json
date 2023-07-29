@@ -8,6 +8,22 @@
         "sizes": "512x512"
       }
     ],
+    "screenshots" : [
+      {
+        "src": "/img/on-board-data-lens.webp",
+        "sizes": "1280x720",
+        "type": "image/webp",
+        "form_factor": "wide",
+        "label": "Главная страница"
+      },
+      {
+        "src": "/img/on-board-map.webp",
+        "sizes": "1280x720",
+        "type": "image/webp",
+        "form_factor": "wide",
+        "label": "Карта"
+      }
+    ],    
     "prefer_related_applications": true,
     "display": "fullscreen",
     "start_url": "/",

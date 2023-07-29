@@ -9,9 +9,15 @@
         @include flex-col-container;
     }
 }
-
+dialog {
+    padding: 0;
+    border: 0;
+    &::backdrop {
+    border: none;
+}
+}
 .dialog {
-    z-index: 1300;
+    z-index: 3000;
     position: fixed;
     background-color: transparent;
     display: flex;
@@ -20,23 +26,49 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+    
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0,0,0, 0.3);
     backdrop-filter: blur(2px);
+    transition: all 300ms ease-in-out;
+    
+    
+    &__title {
+        @include flex-row-container;
+        border-bottom: 1px solid var(--ds-alpha);
+        justify-content: space-between;
+        align-items: center
+    }
     &__body {
-        width: 520px;
-        height: 420px;
+        @include flex-col-container;
+        justify-content: stretch;
+        padding: 1rem;
+        align-items: stretch;
+        
+        max-width: 100%;
+        width: 600px;
+        @media (max-width: $ds-breakpoint-xl) {
+            
+        }
         border-radius: 24px;
-        background-color: var(--ds-gray-100);
+        background-color: var(--body-bg-color);
         position: relative;
 
     }
     
 }
-
+.on-board {
+    &__container {
+        img {
+            max-width: 100%;
+            width: 525px;
+            border-radius: var(--ds-rounded-sm);
+        }
+    }
+}
 .popover {
     //background-color: var(--ds-gray-100);
     width: 100%;
@@ -63,15 +95,38 @@
     }
 }
 
-
+.on-board__container {
+    @include flex-col-container;
+    align-items: center;
+    img {
+        width: 625px;
+    }
+}
 .side-sheets-modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
+    &.left {
+        top: 0;
+        left: 0;
+    }
+    &.bottom {
+        bottom: 0;
+        left: 0;
+    }
+    &.right {
+        top: 0;
+        right: 0;
+    }
+
+    &.top {
+        top: 0;
+        
+    }
     width: 100%;
     height: 100%;
+   
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: brightness(80%) blur(2px);
     z-index: 9999;
    
     &.open {
@@ -79,19 +134,44 @@
     }
   
     .modal-content {
+    @media (max-width: $ds-breakpoint-xl) {
+        width: 525px;
+    }
+
+    @media (max-width: $ds-breakpoint-sm) {
+        height: 50%;
+        width: 100%;
+ 
+        bottom: 0;
+    }
       border-top-left-radius: 24px;
       border-bottom-left-radius: 24px;
       position: fixed;
       top: 0;
       right: 0;
-      width: 325px; /* Ширина боковой панели */
+      width: 460px; /* Ширина боковой панели */
       height: 100%;
       overflow-y: auto;
       
       stroke: #fff;
-      
+      @media (prefers-color-scheme: dark) {
+       color: var(--ds-gray-100);
+      }
       background-color: var(--body-bg-color);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      ol {
+        @include flex-col-container;
+      }
+    }
+    &-btn {
+        
+        svg {
+            height: 50px;
+            width: 50px;
+            stroke: var(--ds-colors-warn);
+        }
+        
+        z-index: 1300;
     }
     &-title {
         position: sticky;
@@ -109,7 +189,7 @@
         }
     }
     .close-button {
-        svg { width: 50px;}
+        svg { width: 25px;}
       
       font-size: 1.5rem;
       background: none;

@@ -12,18 +12,11 @@
 @import './table.scss';
 @import "./components/all.scss";
 @import url("~leaflet/dist/leaflet.css");
-.leaflet-control-attribution {
-  opacity: 0 !important;
-  height: 0 !important;
-  width: 0 !important;
-  user-select: none !important;
-  pointer-events: none !important;
-}
-.leaflet-container {
-  width: 100% !important;
-  height: 100% !important;
-}
+
 :root {
+  --ds-rounded-sm: 6px;
+  --ds-rounded-md: 12px;
+  --ds-rounded-lg: 24px;
   --ds-breakpoint-xs: 0px;
   --ds-breakpoint-sm: 600px;
   --ds-breakpoint-md: 900px;
@@ -35,6 +28,7 @@
   --body-bg-color-dark: hsl(245, 24%, 19%);
   --border-round-sm: 6px;
   --colors-primary: #B0D7FF;
+  --colors-secondary: hsl(256, 34%, 58%);
   --alpha-light: rgba(255,255,255, 0.4);
   --ds-accent-violet-dark: hsl(256, 34%, 58%);
   --ds-accent-violet-light: hsl(255, 34%, 77%);
@@ -46,7 +40,9 @@
   --ds-black-300: hsl(245, 24%, 30%);
   --ds-black-600: hsl(245, 24%, 19%);
   --ds-colors-error: #E74F48;
-  --map-tiles-filter: brightness(0.6) invert(1) contrast(4) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+  --ds-colors-warn: #FFC600;
+  --ds-colors-success: #16D090;
+  //--map-tiles-filter: brightness(0.6) invert(1) contrast(4) hue-rotate(200deg) saturate(0.3) brightness(0.7);
 }
 
 @media (prefers-color-scheme: light) {
@@ -58,6 +54,19 @@
     }
 }
 
+.leaflet-control-attribution {
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+.leaflet-container {
+ 
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: var(--ds-rounded-sm);
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -90,6 +99,7 @@
   
 }
 html {
+  scrollbar-width: thin;
   scroll-behavior: smooth;
   height: 100%;
   text-rendering: optimizeSpeed;

@@ -1,16 +1,15 @@
-import { arrow_left_icon, layers_icons } from '@/shared/assets/icons';
+import { arrow_left_icon, idea_icon, layers_icons, question_mark_icon } from '@/shared/assets/icons';
 import { Button } from '@/shared/ui/Button/Button';
 import React, { useState } from 'react';
 
 
 
 interface SideSheetsModalProps {
- 
-  onClose?: () => void;
+  from: "left" | "right" | "bottom" | "top"  
   children: React.ReactNode
 }
 
-export const SideSheetsModal: React.FC<SideSheetsModalProps> = ({ onClose,  children }) => {
+export const SideSheetsModal: React.FC<SideSheetsModalProps> = ({ from,  children }) => {
     const [isOpen, setIsOpen] = useState(false)
     const handleOpen = () => {
         document.getElementById("map-container")?.setAttribute("dragging", "false")
@@ -22,15 +21,15 @@ export const SideSheetsModal: React.FC<SideSheetsModalProps> = ({ onClose,  chil
     }
   return (
     <>
-    <button className='btn btn--icon btn--secondary btn--contained' onClick={handleOpen}>{layers_icons}</button>
-   {isOpen && <div className={`side-sheets-modal ${isOpen ? 'open' : ''}`}>
+    <button   className='side-sheets-modal-btn btn btn--icon btn--secondary btn--contained' onClick={handleOpen}>{idea_icon} Рекомендации</button>
+   {isOpen && <div className={`side-sheets-modal ${from} ${isOpen ? 'open' : ''}`}>
       <div className="modal-overlay" onClick={handleClose} />
       <div className="modal-content">
         <span className="side-sheets-modal-title">
         <button className="btn close-button" onClick={handleClose}>
          {arrow_left_icon}
         </button>
-        <h4>Установить слои</h4> </span>
+        <h5>Рекомендации</h5> </span>
         {children}
       
         

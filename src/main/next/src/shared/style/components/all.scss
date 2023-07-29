@@ -4,62 +4,140 @@
 @import "./chip.scss";
 @import "./inputs.scss";
 @import "./cards.scss";
+.leaflet-control-zoom {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 .tooltips-bar {
- 
-   &__map {
-    
+  &__map {
+    flex: 2;
+    @media (max-width: $ds-breakpoint-lg) {
+      position: relative;
+    }
+    &-title {
+      @include flex-row-container;
+      align-items: center;
+      stroke: var(--ds-gray-300);
+      fill: var(--ds-gray-300);
+      border-bottom: 1px solid var(--ds-alpha);
+    }
     position: relative;
     &-container {
-        position: absolute;
-        z-index: 1200;
-        margin: 8px ;
-        bottom: 0;
-        
+      position: absolute;
+      z-index: 1200;
+      margin: 8px;
+      top: 0;
+      left: 0;
     }
-    align-items: flex-end;
-    justify-content: flex-start;
-    width: 325px;
+    align-items: stretch;
+    justify-content: space-around;
+
     @media (max-width: $ds-breakpoint-sm) {
-        width: fit-content;
+      width: fit-content;
     }
-    position: static;
-    height: 625px;
-    overflow-y: scroll;
+    @media (max-width: $ds-breakpoint-lg) {
+      overflow: hidden;
+      position: relative;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
     display: flex;
-    gap: 4pt;
+    flex-direction: column;
+    gap: 16pt;
     overflow: hidden;
-   
+    height: fit-content;
+    max-height: 100%;
     svg {
-        max-width: 50px;
-        max-height: 50px;
+      max-width: 50px;
+      max-height: 50px;
     }
     margin-bottom: 1rem;
-    ul { 
-        text-align: center;
-        margin-top: 1rem;
-        overflow-x: scroll;
+    ul {
+      @media (max-width: $ds-breakpoint-sm) {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 0;
-        margin: 0;
-        gap: 8pt;
+      }
+      @media (max-width: $ds-breakpoint-lg) {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        overflow: scroll;
+        height: fit-content;
+        width: 100%;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+      text-align: center;
+      margin-top: 1rem;
+        
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 0;
+      margin: 0;
+      gap: 8pt;
 
-        label {
-            display: flex;
+      label {
+        display: flex;
+      }
+      li {
+        margin-left: 1rem;
+        margin-top: 1rem;
+        &::marker {
+          color: transparent;
+          display: none;
         }
-        li {
-            margin-left: 1rem;
-            margin-top: 1rem;
-            &::marker {
-                color: transparent;
-            }
-           }
+      }
+    }
+  }
+}
 
-       }
-   
-   }
+.color-line {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    z-index: 1200;
+    height: 25px;
+    width: 200px;
+    border-radius: var(--ds-rounded-lg);
+  &__bar {
+    border-radius: var(--ds-rounded-lg);
+    height: 100%;
+    width: 100%;
+    background: rgb(255, 0, 0);
+    background: -moz-linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 1) 0%,
+      rgba(255, 102, 0, 1) 20%,
+      rgba(255, 222, 0, 1) 50%,
+      rgba(191, 255, 120, 1) 80%,
+      rgba(96, 255, 135, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 1) 0%,
+      rgba(255, 102, 0, 1) 20%,
+      rgba(255, 222, 0, 1) 50%,
+      rgba(191, 255, 120, 1) 80%,
+      rgba(96, 255, 135, 1) 100%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 1) 0%,
+      rgba(255, 102, 0, 1) 20%,
+      rgba(255, 222, 0, 1) 50%,
+      rgba(191, 255, 120, 1) 80%,
+      rgba(96, 255, 135, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff0000",endColorstr="#60ff87",GradientType=1);
+  }
+  &__grade-labels {
+    @include flex-row-container;
+    gap: 16pt;
+  }
   
- 
 }

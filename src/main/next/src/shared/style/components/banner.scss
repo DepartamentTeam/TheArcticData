@@ -1,11 +1,13 @@
 
 .banner {
+
     grid-column-start: span 6;
     height: 325px;
     flex-shrink: 0;
-    position: relative;
+    position: absolute;
     z-index: 20;
     border-radius: .75rem;
     background-color: var(--colors-primary);
    padding: 1rem;
+   color: var(--ds-black-600);
 }

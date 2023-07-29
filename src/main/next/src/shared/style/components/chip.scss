@@ -10,7 +10,7 @@ $md3-disabled-color: #9e9e9e;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: var(--ds-rounded-lg);
     padding: 8px 16px;
     font-size: 14px;
     cursor: pointer;
@@ -26,7 +26,21 @@ $md3-disabled-color: #9e9e9e;
       background-color: var(--colors-primary);
       color: var(--ds-black-300);
     }
-  
+    &-rating {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      @include flex-row-container;
+      align-items: center;
+      svg {
+        width: 52px;
+        height: 52px;
+      }
+      &:hover {
+        background-color: transparent;
+      }
+      border: 2px solid transparent;
+      border-radius: var(--ds-rounded-lg);
+    }
     &.checked {
       &:before {
         
@@ -47,3 +61,4 @@ $md3-disabled-color: #9e9e9e;
       cursor: not-allowed;
     }
   }
+

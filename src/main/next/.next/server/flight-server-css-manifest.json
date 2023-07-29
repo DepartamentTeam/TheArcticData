@@ -1,0 +1,48 @@
+{
+  "cssImports": {
+    "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\app\\layout.tsx": [
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\shared\\style\\globals.scss"
+    ],
+    "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\app\\dashboard\\layout.tsx": [
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Montserrat\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"300\",\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"verdana\"]}],\"variableName\":\"montserrat\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Noto_Serif\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"serif\"]}],\"variableName\":\"notoSerif\"}"
+    ]
+  },
+  "cssModules": {
+    "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\app\\page": [
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Montserrat\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"300\",\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"verdana\"]}],\"variableName\":\"montserrat\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Noto_Serif\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"serif\"]}],\"variableName\":\"notoSerif\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\shared\\style\\globals.scss"
+    ],
+    "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\app\\login\\page": [
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\shared\\style\\globals.scss",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Montserrat\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"300\",\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"verdana\"]}],\"variableName\":\"montserrat\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Noto_Serif\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"serif\"]}],\"variableName\":\"notoSerif\"}"
+    ],
+    "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\app\\dashboard\\page": [
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Montserrat\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"300\",\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"verdana\"]}],\"variableName\":\"montserrat\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Noto_Serif\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"serif\"]}],\"variableName\":\"notoSerif\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\shared\\style\\globals.scss"
+    ],
+    "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\app\\dashboard\\map\\page": [
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Montserrat\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"300\",\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"verdana\"]}],\"variableName\":\"montserrat\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Noto_Serif\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"serif\"]}],\"variableName\":\"notoSerif\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\shared\\style\\globals.scss"
+    ],
+    "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\app\\dashboard\\analytics\\page": [
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Montserrat\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"300\",\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"verdana\"]}],\"variableName\":\"montserrat\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Noto_Serif\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"serif\"]}],\"variableName\":\"notoSerif\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\shared\\style\\globals.scss"
+    ],
+    "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\app\\dashboard\\settings\\page": [
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Montserrat\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"300\",\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"verdana\"]}],\"variableName\":\"montserrat\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Noto_Serif\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"serif\"]}],\"variableName\":\"notoSerif\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\shared\\style\\globals.scss"
+    ],
+    "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\app\\dashboard\\about\\page": [
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Montserrat\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"300\",\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"verdana\"]}],\"variableName\":\"montserrat\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\node_modules\\.pnpm\\next@13.4.5_react-dom@18.2.0_react@18.2.0_sass@1.64.1\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\shared\\\\style\\\\fonts.ts\",\"import\":\"Noto_Serif\",\"arguments\":[{\"style\":\"normal\",\"weight\":[\"400\",\"700\"],\"display\":\"swap\",\"subsets\":[\"cyrillic\"],\"fallback\":[\"serif\"]}],\"variableName\":\"notoSerif\"}",
+      "C:\\Projects\\React\\ARTEK\\TheArcticData\\src\\main\\next\\src\\shared\\style\\globals.scss"
+    ]
+  }
+}

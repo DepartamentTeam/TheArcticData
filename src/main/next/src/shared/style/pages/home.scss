@@ -1,57 +1,120 @@
-
-
 .sc-hero {
-    min-height: 600px;
-    @include flex-col-container;
-    justify-content: center;
-    text-align: left;
-    height: 100vh;
-    align-items: center;
+  overflow: hidden;
+  min-height: 600px;
+  @include flex-col-container;
+  justify-content: center;
+  text-align: left;
+  height: 100dvh;
+  align-items: center;
+  position: relative;
+  stroke: var(--ds-alpha);
+  &__content {
+    z-index: 1;
+    position: absolute;
+    @media (min-width: $ds-breakpoint-lg) {
+      right: -12%;
+    }
+    right: -30%;
+    top: 0;
+    animation: globe-rotation 10s linear 1;
     
-    &__intro-title {
-        line-height: 1;
-        flex: none;
-        margin-left: 20%;
-        margin-right: auto;
-        font-size: 44pt;
+    @keyframes globe-rotation {
+      0% {
+        transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg);
+      }
+      50% {
+        transform: rotateZ(12deg) rotateY(9deg) rotateX(18deg);
+      }
+      100% {
+        transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg);
+      }
     }
-    &__buttons {
-        margin-top: 1rem;
-        display: flex;
-        gap: 16pt;
-        align-items: center;
-        justify-content: space-around;
-        
+    &__circle {
+        filter: blur(20px);
     }
+    &-mapShape {
 
-    
+      transform: perspective(125px) translateY(300px) scaleX(3)  rotateX(35deg);
+      position: absolute;
+      bottom: 0;
+      left:0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__overlay {
+    filter: brightness(40%);
+    z-index: 1;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    max-height: 600px;
+  }
+  &__intro-title {
+    position: relative;
+    z-index: 20;
+    line-height: 1;
+    flex: none;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 44pt;
+  }
+  &__buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 16pt;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+z-index: 20;
+  }
 }
 
-
 .sc-header {
-    &__logo {
-        font-family: Noto Sans;
-    }
+  top: 0;
+  position: sticky;
+  &__logo {
+    font-family: Noto Sans;
+  }
+  
 }
 
 .lt-home {
- 
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: stretch;
-        height: 100%;
-        width: 100%;
-      
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  height: 100%;
+  width: 100%;
 }
 
 .sc-home {
+ 
+  padding-top: 2rem;
+  margin: auto;
+  height: 100vh;
+  min-height: 600px;
+  padding-bottom: 2rem;
+  &__section {
+    
+    
     padding-top: 2rem;
-    margin: auto;
-    height: 100vh;
-    min-height: 600px;
     padding-bottom: 2rem;
+    margin: auto;
+    @include flex-col-container;
+    align-items: stretch;
+    text-align: left;
+    flex: 1;
+    min-height: 80dvh;
+    &-ratings {
+      display: flex;
+      justify-content: space-around;
+      svg {
+        height: 120px;
+        width: 120px;
+        stroke: var(--ds-colors-error);
+      }
+    }
+  }
 }
-
-

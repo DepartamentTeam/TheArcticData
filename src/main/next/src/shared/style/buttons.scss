@@ -15,11 +15,13 @@
        filter: brightness(110%); 
     }
     &--icon {
-        padding: 0;
+        padding: 4pt;
         svg {
             max-width: 24px;
         }
         display: flex;
+        justify-content: center;
+        align-items: center;
     }
  
     &--primary {
@@ -49,9 +51,29 @@
             outline: none;
         }
     }
+    &--FAB {
+        border-radius: var(--ds-rounded-md);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        fill: var(--colors-primary) !important;
+        background-color: var(--body-bg-color);
+        padding-left: 16pt;
+        padding-right: 16pt;
+    }
     &--small {
         padding: .1rem .3rem .1rem .3rem;
         font-size: 10pt;
         font-weight: 400;
+    }
+}
+
+.cta-help-modal {
+    position: absolute;
+    z-index: 2000;
+    right: 2%;
+    bottom: 2%;
+    fill: var(--ds-gray-600);
+    svg {
+        width: 50px;
+        height: 50px;
     }
 }

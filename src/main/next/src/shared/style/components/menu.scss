@@ -12,6 +12,62 @@
   
 }
 
+    .tabs {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+        border-radius: 8px;
+        height: 100%;
+        
+        & .tabs-header {
+          justify-content: flex-start;
+          display: flex;
+          position: relative;
+          background-color: var(--body-bg-color);
+          padding: 8px;
+          
+      
+          & .tab-button {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: transparent;
+            padding: 1rem;
+            font-size: 16px;
+            color: var(--colors-primary);
+            transition: color 0.2s;
+            border-left: 1px solid var(--ds-alpha);
+            border-right: 1px solid var(--ds-alpha);
+            &:hover {
+              color: var(--colors-secondary);
+            }
+      
+            &.active {
+              color: var(--colors-secondary);
+              font-weight: bold;
+              
+            }
+            &.top {
+              border-top: 2px solid var(--colors-secondary);
+            }
+            &.bottom {
+              border-bottom: 2px solid var(--colors-secondary);
+            }
+            &:not(:last-child) {
+             
+            }
+          }
+        }
+      
+        & .tabs-content {
+          height: 100%;
+          position: relative;
+          padding: 1rem;
+   
+        }
+      }
+
 .menu {
     button {
         &:hover {

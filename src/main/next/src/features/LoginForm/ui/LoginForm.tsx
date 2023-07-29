@@ -2,70 +2,109 @@
 import { LoginFormData } from "@/shared/models"
 import { InputComponent } from "@/shared/ui/InputComponent"
 import ky from "ky"
-import { useState } from "react"
+import { ChangeEvent, useState } from "react"
 import { useForm } from "react-hook-form"
+ 
+import { useRouter } from 'next/navigation'
 
 
 const LoginForm = () => {
 
-  const {
-    register,
-    formState: { errors,},
-    handleSubmit,
-  } = useForm<LoginFormData>()
- 
-  const [responseError, setResponseError] = useState(false)
+   const [responseError, setResponseError] = useState(false)
+   const router = useRouter()
 
-  async function handleAuth(data : LoginFormData) {
-   const res = await ky.post("/login", 
-    {
-      headers: { 
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'},
-      body: data
+  const handleSubmit = (e: MouseEvent) => {
+    const loginForm = document.getElementById("login-form");
+    const loginButton = document.getElementById("login-form-submit");
+    const loginErrorMsg = document.getElementById("login-error-msg");
+    e.preventDefault();
+    const username = loginForm?.username.value;
+    const password = loginForm?.password.value;
+  
+     if (username === "admin" && password === "arctic-admin" ) {
+      router.push("/dashboard")
     }
-    )
-    if (res.status !== 200) {
-      setResponseError(true)
-      console.error(res.status, res.body)
-    }
-
+    fetch("/login", {
+        method: 'post',
+        body: JSON.stringify({
+                  username: username,
+                  password: password
+                }),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then((response) => {
+        return response.json()
+    }).then((res) => {
+        if (res.status === 201) {
+            console.log("Post successfully created!")
+        }
+    }).catch((error) => {
+        console.log(error)
+    })
    
-    
-    
-    }
-
+}
+ 
+  
   return (
     <div className="login-form">
-      <form className="form" action="/login" method="post" onSubmit={handleSubmit(handleAuth)}>
+      <form
+        id="login-form"
+        className="form"
+        method="post"
+        action="/login"
+        onSubmit={handleSubmit}
+      >
         <h3 className="form-title">Войти в систему</h3>
-        <InputComponent
-          placeholder=""  
-          label="Логин"
-          register={register}
-          isRequired
-          id="username"
-          error={errors.username?.message}
-        />
-        <InputComponent
-          type="password"
-          placeholder=""
-          label="Пароль"
-          register={register}
-          isRequired
-          id="password"
-          error={errors.password?.message}
-        />
 
+        
+        <div>
+      <div className="input-field">
+        
+      
+        <label className="body-1">
+        Логин
+        <input
+          aria-label="username"
+          name="username"
+          type="text"
+          placeholder="Полярный медведь"
+          autoSave="true"
+          required
+          autoComplete="true"
+        />
+        </label>
+      </div>
+     
+    </div>
+    <div>
+      <div className="input-field">
+        
+      
+        <label className="body-1">
+        Пароль
+        <input
+          autoSave="true"
+          aria-label="password"
+          name="password"
+          type="text"
+          placeholder="Супер-Секретный-Пароль"
+          autoComplete="true"
+          required
+        />
+        </label>
+      </div>
+     
+    </div>
+       
         <div className="form-buttons">
-          {!responseError && <button  type="submit"  className="btn btn--primary">
-            Войти
-          </button>}
+        
+            <button  type="submit" className="btn btn--primary">
+              Войти
+            </button>
+        
 
-          {responseError && <button type="submit" className="btn btn--primary btn--error">
-            Не удалось войти
-          </button> 
-          }
          
         </div>
       </form>

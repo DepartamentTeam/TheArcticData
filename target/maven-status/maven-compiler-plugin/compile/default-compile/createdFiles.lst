@@ -1,0 +1,11 @@
+com\departmentteam\arctic\model\Settlements.class
+com\departmentteam\arctic\config\AuthenticationSuccessHandlerImpl.class
+com\departmentteam\arctic\controller\RouteController.class
+com\departmentteam\arctic\dao\SettlHospNearestRoutesRepository.class
+com\departmentteam\arctic\model\SettlHospNearestRoutes.class
+com\departmentteam\arctic\model\Settlements$SettlementsBuilder.class
+com\departmentteam\arctic\config\SecurityConfiguration.class
+com\departmentteam\arctic\config\WebConfiguration.class
+com\departmentteam\arctic\ArcticApplication.class
+com\departmentteam\arctic\dao\SettlementsRepository.class
+com\departmentteam\arctic\model\SettlHospNearestRoutes$SettlHospNearestRoutesBuilder.class

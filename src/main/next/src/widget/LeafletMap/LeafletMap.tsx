@@ -1,92 +1,122 @@
 "use client"
-import { useState, useCallback, useEffect } from "react"
+import { useState,  useEffect } from "react"
 import {
-  LayersControl,
   MapContainer,
   TileLayer,
   WMSTileLayer,
+  GeoJSON
 } from "react-leaflet"
-
+import "leaflet.nontiledlayer"
 import { InfoWMSTileLayer } from "react-leaflet-infowms"
 import type { MapOptions } from "leaflet"
 import { MapCard } from "../../enteties/MapCard/MapCard"
-import { Select } from "@/shared/ui/Select"
 import { nanoid } from "nanoid"
 import ky from "ky"
-import { Menu } from "@/enteties/Menu/Menu"
-import { Popover } from "@/enteties/Popover/Popover"
-import { CheckboxComponent } from "@/shared/ui/Checkbox"
+
+import {
+  useMapThemeStore,
+  useSecondaryMapCardStore,
+  useStore,
+} from "@/shared/store/store"
+import ColorLegend from "./ColorLegend"
+import useMediaQuery, { isMobileScreen } from "@/shared/lib/useMediaQuery"
+import { SideSheetsModal } from "@/enteties/SideSheetModal"
 import { LayerSelector } from "./LayersSelector"
-import { useStore } from "@/shared/store/store"
+import { getFeatureInfo } from "./utils"
 
 interface ILeafletMap {
   layer: string
 }
 
 
+const generateKey= ():string => { return nanoid(4).toString() }
 
 export const LeafletMap = () => {
-  const [isMounted, setIsMounted] = useState(false)
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
+  const isMobileScreen = useMediaQuery("(max-width: 600px)")
   const [key, setNewKey] = useState<string>()
   const [cardData, setCardData] = useState()
- async function wmsInfo(event) {
-    console.log("Ky event", event.url)
-    await ky
-      .get(event.url).json().then((res) => setCardData(res.features[0].properties))
+  const { setProps } = useSecondaryMapCardStore()
+
+ 
+  const [keyRoadGeoJson, setKeyRoadGeoJson] = useState<string>()
+  const [roadGeoJSON, setRoadGeoJSON] = useState(null)
+  const handelGetGeoJSON = (id: number) => {
+    fetch(`http://localhost:8080/route?id=${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+         setRoadGeoJSON(data)
+        console.log(data)
+      })
   }
 
-  const [layer, setLayer] = useState<string>("auto_foot_graph_arh_obl")
+  useEffect(() => {
+    if (cardData?.settlement !== undefined) {
+      setKeyRoadGeoJson(generateKey())
+      handelGetGeoJSON(cardData?.id)
+    }
+  }, [cardData])
+
   const Layers = useStore().layers
 
   const LayersString = Layers.join(",")
-  console.log("Layer string ", LayersString)
-  useEffect(() => {
-    let key = nanoid(4).toString()
-    setNewKey(key)
-  }, [layer,LayersString])
-  const [viewState, setViewState] = useState<MapOptions>({
-    center: { lat: 66, lng: 33 },
-    zoom: 5,
-  })
-  const [data, setData] = useState()
- 
-  const onHover = useCallback((event: any) => {
-    const {
-      features,
-      point: { x, y },
-    } = event
-    const hoveredFeature = features && features[0]
-    setCardData(hoveredFeature && { feature: hoveredFeature, x, y })
-  }, [])
-  const handleClick = (feature: any) => {
-    console.log("click")
-    setCardData(feature.properties)
-  }
-  const handleMergeLayer = (val: any) => {
-   let query = layer !== "" ? `department:${val.trim()}`: "" 
 
-    setLayer(`${query},${layer !== "" ? layer : null}`)
+  useEffect(() => {
+    setNewKey(generateKey())
+  }, [LayersString])
+
+  const [viewState, setViewState] = useState<MapOptions>({
+    center: { lat: 72, lng: 60 },
+    zoom: 3,
+  })
+
+  const light_map = {
+    attribution:
+      '&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   }
-  console.log("Layer" + layer)
-  console.log("Card Data", cardData)
+  const dark_map = {
+    url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+    attribution:
+      '&copy; <a href="https://www.carto.com/" target="_blank">CARTO</a>',
+  }
+  
+  const theme = window.localStorage.getItem("mapTheme")
   return (
-    <>  <LayerSelector/>
-        <MapContainer className="map-tiles"   dragging id="map-container" {...viewState} minZoom={3} >
-        
-        {cardData && <MapCard props={cardData} />}
+    <>
+      {cardData && <MapCard props={cardData} />}
+      <MapContainer
+        doubleClickZoom={false}
+        className="map-tiles"
+        dragging
+        id="map-container"
+        {...viewState}
+        minZoom={3}
+      >
+        {cardData?.itog_letters_group && <ColorLegend />}
+        {roadGeoJSON && <GeoJSON
+         key={keyRoadGeoJson} 
+         data={roadGeoJSON}
+         
+        />}
+
+{cardData?.geometry2 && <GeoJSON
+         key={keyRoadGeoJson} 
+         data={cardData?.geometry2}
+         
+        />}
         <TileLayer
-        
-          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution={
+            theme === "dark" ? dark_map.attribution : light_map.attribution
+          }
+          url={theme === "dark" ? dark_map.url : light_map.url}
         />
         <InfoWMSTileLayer
-      
           key={`${key}-info`}
+          crossOrigin="anonymous"
           url="http://62.113.107.81:8081/geoserver/department/wms"
           params={{
+            
+            version: '1.1.0',
             Request: "GetFeatureInfo",
             key: key,
             layers: LayersString,
@@ -94,12 +124,18 @@ export const LeafletMap = () => {
             transparent: true,
             attribution: "myattribution",
           }}
-          eventHandlers={{ 
-             click: (event) => wmsInfo(event) }}
+          eventHandlers={{
+            click: async (event) => {
+              const data = await getFeatureInfo(event)
+              setCardData(data.features[0].properties)
+              setProps(data.features[0].properties)
+            }
+          }}
         />
-   <WMSTileLayer
 
-          crossOrigin=""
+        <WMSTileLayer
+          styles=""
+          crossOrigin="anonymous"
           key={key}
           url="http://62.113.107.81:8081/geoserver/department/wms"
           layers={LayersString}
@@ -109,10 +145,10 @@ export const LeafletMap = () => {
           attribution="myattribution"
           
         />
-      
-       
-   
       </MapContainer>
+      {isMobileScreen && <SideSheetsModal from="bottom">
+        <LayerSelector/>
+      </SideSheetsModal>}
     </>
   )
 }

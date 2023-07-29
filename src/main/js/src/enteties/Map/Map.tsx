@@ -94,7 +94,7 @@ export const MapComponent: React.FC<MapProps> = ({
 				longitude: centerPosition[1],
 				zoom: 5,
 			}}
-			interactiveLayerIds={["data", "multiPolygonLayer", "circle"]}
+			interactiveLayerIds={["data"]}
 			mapStyle="mapbox://styles/emelyanovkonstantin/clitiga9m00bo01qyahojah61"
 			mapboxAccessToken="pk.eyJ1IjoiZW1lbHlhbm92a29uc3RhbnRpbiIsImEiOiJjbGl3OHVhM3kwOXk2M2ptZ2w3eDJjOHk5In0.NI5D6DkjQI7iYfaP9ibnKw"
 			onMove={(evt) => setViewState(evt.viewState)}

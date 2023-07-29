@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <style>
+            body { margin: 0; padding: 0; }
+            #map { position: absolute; height: 88%; width: 100%; }
+    </style>
+</head>
+<body style="background: white;">
+<h3 style="text-align: center;color:rgb(32, 32, 32)">Система идентификации населённых пунктов с ограниченным доступом к медицинской помощи в Арктической зоне.</h3>
+
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZW1lbHlhbm92a29uc3RhbnRpbiIsImEiOiJjbGl3OHVhM3kwOXk2M2ptZ2w3eDJjOHk5In0.NI5D6DkjQI7iYfaP9ibnKw';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/emelyanovkonstantin/clitiga9m00bo01qyahojah61', // style URL
+        center: [33.376491, 68.912657], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+</script>
+</body>
+</html>

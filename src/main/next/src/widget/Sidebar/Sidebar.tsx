@@ -1,18 +1,42 @@
-import { Searchbar } from "@/enteties/Searchbar"
+"use client"
+
 import { SidebarItem } from "@/enteties/SidebarItem/SidebarItem"
 import Link from "next/link"
-import { about_project_icon, analytics, data_lens, map,  params_gear_icon } from "./icons"
+import { about_project_icon, analytics, data_lens, home, map,  params_gear_icon } from "./icons"
+import { useState } from "react"
+import { arrow_left_icon, two_arrows_right } from "@/shared/assets/icons"
 
 const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(true)
+  const handleOpen = () => {
+    setIsOpen(true)
+  }
+  const handleClose = () => {
+    setIsOpen(false)
+  }
   return (
-    <nav className="pg-dashboard__sidebar">
+    <nav className={!isOpen ? "pg-dashboard__sidebar" : "pg-dashboard__sidebar-hidden"}>
+    
       <span className="logo">
         {" "}
         <Link href="/">Арктида</Link>
+      
       </span>
-      <div className="pg-dashboard__sidebar-menu">
-       
-        <SidebarItem title="Карта" path="/dashboard" icon={map} />
+      <div className="pg-dashboard__sidebar-menu" >
+      { isOpen? <button className="btn  btn--icon" onClick={handleClose}>
+        {two_arrows_right}
+      </button> : <button className="btn btn--icon" onClick={handleOpen}>
+        {two_arrows_right}
+      </button>
+      }
+       <SidebarItem
+          title="Главная"
+          path="/dashboard"
+          icon={
+          data_lens
+          }
+        />
+        <SidebarItem title="Карта" path="/dashboard/map" icon={map} />
         <SidebarItem
           title="Аналитика"
           path="/dashboard/analytics"
@@ -20,18 +44,8 @@ const Sidebar = () => {
            analytics
           }
         />
-        <SidebarItem
-          title="Data Lens"
-          path="/dashboard/data-lens"
-          icon={
-          data_lens
-          }
-        />
-      </div>
-
-      <div className="pg-dashboard__sidebar-menu">
         <hr className="divider" />
-
+        
         <SidebarItem
           title="Параметры"
           path="/dashboard/settings"
@@ -47,7 +61,14 @@ const Sidebar = () => {
           }
         />
       </div>
-      <span className="small-2">Department <br></br> team</span>
+
+      
+       
+
+          
+   
+    
+     
     </nav>
   )
 }

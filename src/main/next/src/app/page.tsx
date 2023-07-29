@@ -1,14 +1,14 @@
-import { Hero } from "@/enteties/Hero/Hero";
+import { Hero } from "@/enteties/Hero/Hero"
+import { notoSerif } from "@/shared/style/fonts"
 
-import Header from "@/widget/Header/Header";
+import Header from "@/widget/Header/Header"
 
 export default function HomePage() {
   return (
-    <section>  
+    <>
     
-    
-        <Hero/>
-        
-        </section>
+      <Hero />
+   
+    </>
   )
 }
