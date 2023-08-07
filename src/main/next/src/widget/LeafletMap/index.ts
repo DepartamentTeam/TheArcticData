@@ -1,1 +1,1 @@
-export * as default from "./LeafletMap"
+export * as default from "./ui/LeafletMap"

@@ -1,3 +1,4 @@
+
 import { Searchbar } from "@/enteties/Searchbar"
 import { SidebarItem } from "@/enteties/SidebarItem/SidebarItem"
 import ContentLoader from "react-content-loader"
