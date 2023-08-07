@@ -1,11 +1,10 @@
 import { Metadata } from "next"
 
-
-export const metadata : Metadata = {
+export const metadata: Metadata = {
   title: "Войти",
   description: "Войти в систему",
   robots: "none",
-  icons: ["/icons/lock.ico"]
+  icons: ["/icons/lock.ico"],
 }
 
 export default function LoginLayout({
@@ -13,5 +12,10 @@ export default function LoginLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <section className="pg-login__layout">{children}</section>
+  return (
+    <section className="pg-login__layout">
+      {children}
+   
+    </section>
+  )
 }

@@ -13,6 +13,7 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode
 }) {
+ 
   return (
     
       <main className="lt-dashboard" style={montserrat.style}>

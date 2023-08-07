@@ -1,16 +1,49 @@
-import { Metadata } from "next"
+"use client"
+import { useMapThemeStore } from "@/shared/store/store"
+import { InputRadioGroup } from "@/shared/ui/InputRadioButtons"
+import dynamic from "next/dynamic"
+import type { Metadata } from "next"
 
-export const metadata : Metadata = {
-    title: "Параметры",
-    description: "Параметры аккунта",
-    icons: ["/icons/settings.ico"],
-    robots: "none"
-  }
-  
+export const metadata: Metadata = {
+  title: "Параметры",
+  description: "Параметры аккунта",
+  icons: ["/icons/settings.ico"],
+  robots: "none",
+}
+
+const OnBoardNoSSR = dynamic(() => import("@/widget/OnBoard/OnBoard"), {
+  ssr: false
+});
 export default function SettingsPage() {
-    return(
-        <main className="pg-dashboard-container">
-                <h1>Параметры</h1>
-        </main>
-    )
+  const { theme, setMapTheme } = useMapThemeStore()
+
+  const handleRadioChange = (value: string) => {
+    setMapTheme(value)
+    window.localStorage.setItem("mapTheme", value)
+  }
+
+  const radioOptions  = [
+    { label: "Светлая", value: "light", exampleImageSource: "/img/map-light-example"   },
+    { label: "Темная", value: "dark", exampleImageSource: "/img/map-dark-example" },
+  ]
+
+  return (
+    <main className="pg-dashboard-container">
+      <div className="full-col lg-row">
+      <h1>Параметры</h1>
+        <div className="pg-settings">
+          <hr className="divider"></hr>
+      
+          <InputRadioGroup
+            label="Тема карты"
+            options={radioOptions}
+            selectedValue={theme}
+            onChange={handleRadioChange}
+          />
+         
+        </div>
+      </div>
+      <OnBoardNoSSR/>
+    </main>
+  )
 }
